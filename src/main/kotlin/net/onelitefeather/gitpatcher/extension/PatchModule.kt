@@ -7,10 +7,17 @@ import java.io.File
 abstract class PatchModule {
 
     @get:Input
-    abstract val root: Property<File>
+    abstract val submodule: String
+    @get:Input
+    abstract val root: File
+    @get:Input
+    abstract val target: File
+    @get:Input
+    abstract val patches: File
 
     @get:Input
-    abstract val target: Property<File>
-    abstract val patches: Property<File>
+    abstract val committerNameOverride: Property<String>
+    @get:Input
+    abstract val committerEmailOverride: Property<String>
 
 }
