@@ -20,6 +20,13 @@ class Git(repo: File) {
         private const val NO_PAGER = "--no-pager"
         private const val VERSION = "version"
         private const val SUBMODULE = "submodule"
+        private const val BRANCH = "branch"
+        private const val CLONE = "clone"
+        private const val FETCH = "fetch"
+        private const val CHECKOUT = "checkout"
+        private const val RESET = "reset"
+        private const val CONFIG = "config"
+        private const val AM = "am"
     }
 
     @get:Input
@@ -79,6 +86,69 @@ class Git(repo: File) {
      */
     fun submodule(vararg args: String): Command {
         return run(SUBMODULE, *args)
+    }
+
+    /**
+     * Runs a command for the branch
+     * @param args Command args
+     * @return Branch command
+     */
+    fun branch(vararg args: String): Command {
+        return run(BRANCH, *args)
+    }
+
+    /**
+     * Runs a checkout command
+     * @param args Command args
+     * @return Checkout command
+     */
+    fun checkout(vararg args: String): Command {
+        return run(CHECKOUT, *args)
+    }
+
+    /**
+     * Runs a reset command
+     * @param args Command args
+     * @return Reset command
+     */
+    fun reset(vararg args: String): Command {
+        return run(RESET, *args)
+    }
+
+    /**
+     * Runs a config command
+     * @param args Command args
+     * @return Config command
+     */
+    fun config(vararg args: String): Command {
+        return run(CONFIG, *args)
+    }
+
+    /**
+     * Runs an am command
+     * @param args Command args
+     * @return Am command
+     */
+    fun am(vararg args: String): Command {
+        return run(AM, *args)
+    }
+
+    /**
+     * Runs a fetch command
+     * @param args Command args
+     * @return Fetch command
+     */
+    fun fetch(vararg args: String): Command {
+        return run(FETCH, *args)
+    }
+
+    /**
+     * Runs a clone command
+     * @param args Command args
+     * @return Clone command
+     */
+    fun clone(vararg args: String): Command {
+        return run(CLONE, *args)
     }
 
     /**

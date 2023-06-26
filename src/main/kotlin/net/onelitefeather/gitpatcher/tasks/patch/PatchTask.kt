@@ -13,7 +13,7 @@ abstract class PatchTask : SubmoduleTask() {
 
     private var cachedRefs: List<String>? = null
 
-    protected fun getPatches(): Array<File> {
+    protected open fun getPatches(): Array<File> {
         if (!patchDir.isDirectory) {
             return emptyArray()
         }
@@ -31,7 +31,7 @@ abstract class PatchTask : SubmoduleTask() {
         return File(repo, ".git")
     }
 
-    fun getRefCache(): File {
+    open fun getRefCache(): File {
         return File(this.getGitDir(), ".gitpatcher_ref")
     }
 
