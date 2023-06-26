@@ -7,7 +7,7 @@ import org.gradle.api.logging.Logging
 import org.gradle.api.tasks.Input
 
 
-abstract class Git(repo: File) {
+class Git(repo: File) {
 
     companion object {
         private val LOGGER = Logging.getLogger(Git::class.java)
@@ -18,6 +18,7 @@ abstract class Git(repo: File) {
         private const val REV_PARSE = "rev-parse"
         private const val HEAD = "HEAD"
         private const val NO_PAGER = "--no-pager"
+        private const val VERSION = "version"
     }
 
     @get:Input
@@ -60,6 +61,14 @@ abstract class Git(repo: File) {
      */
     fun getRef(): String {
         return run(REV_PARSE, HEAD).text().lines().first().trim()
+    }
+
+    /**
+     * Gets git version
+     * @return Git version command
+     */
+    fun gitVersion(): Command {
+        return run(VERSION)
     }
 
     /**
