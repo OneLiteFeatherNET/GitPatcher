@@ -27,6 +27,9 @@ class Git(repo: File) {
         private const val RESET = "reset"
         private const val CONFIG = "config"
         private const val AM = "am"
+        private const val FORMAT_PATCH = "format-patch"
+        private const val ADD = "add"
+        private const val DIFF = "diff"
     }
 
     @get:Input
@@ -149,6 +152,34 @@ class Git(repo: File) {
      */
     fun clone(vararg args: String): Command {
         return run(CLONE, *args)
+    }
+
+
+    /**
+     * Runs a command for patch format
+     * @param args Command args
+     * @return Format patch command
+     */
+    fun formatPatch(vararg args: String): Command {
+        return run(FORMAT_PATCH, *args)
+    }
+
+    /**
+     * Runs a command to add files to git
+     * @param args Command args
+     * @return Add command
+     */
+    fun add(vararg args: String): Command {
+        return run(ADD, *args)
+    }
+
+    /**
+     * Runs a command to generate diff
+     * @param args Command args
+     * @return Diff command
+     */
+    fun diff(vararg args: String): Command {
+        return run(DIFF, *args)
     }
 
     /**
