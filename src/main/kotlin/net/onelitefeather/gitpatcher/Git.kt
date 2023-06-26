@@ -19,6 +19,7 @@ class Git(repo: File) {
         private const val HEAD = "HEAD"
         private const val NO_PAGER = "--no-pager"
         private const val VERSION = "version"
+        private const val SUBMODULE = "submodule"
     }
 
     @get:Input
@@ -69,6 +70,15 @@ class Git(repo: File) {
      */
     fun gitVersion(): Command {
         return run(VERSION)
+    }
+
+    /**
+     * Runs a command for the submodule
+     * @param args Command args
+     * @return Submodule command
+     */
+    fun submodule(vararg args: String): Command {
+        return run(SUBMODULE, *args)
     }
 
     /**
