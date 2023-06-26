@@ -1,12 +1,9 @@
 package net.onelitefeather.gitpatcher.tasks
 
-import java.io.File
 import net.onelitefeather.gitpatcher.Git
 import org.gradle.api.tasks.TaskAction
 
-class UpdateSubmodulesTask(
-    override val repo: File,
-    override val submodule: String) : SubmoduleTask() {
+abstract class UpdateSubmodulesTask() : SubmoduleTask() {
 
     companion object {
         private const val STATUS = "status"
